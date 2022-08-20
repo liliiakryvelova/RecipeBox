@@ -1,0 +1,57 @@
+@{
+  Layout = "_Layout";
+}
+@using RecipeBox.Models;
+
+@model IEnumerable<RecipeBox.Models.Recipe>;
+
+<h1>Recipes</h1>
+
+<p>  
+    @Html.ActionLink("Create New", "Create")  
+</p>  
+@using (Html.BeginForm())  
+{  
+    <p>  
+        Search By Name : @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)    
+        <input type="submit" value="Search" /></p>  
+} 
+
+<table>
+
+    <tr>
+      <th>
+       @Html.DisplayNameFor(model => model.RecipeName)
+      </th>
+      <th>
+        @Html.ActionLink("Rate", "Index", new { sortOrder=ViewBag.RateSortParm})
+      </th>
+      <th>
+        @Html.DisplayNameFor(model => model.Ingredients)
+      </th>
+      <th></th>
+    </tr>
+
+    @foreach (Recipe recipe in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => recipe.RecipeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => recipe.Rate)
+            </td>
+            <td>
+              @Html.DisplayFor(modelItem => recipe.Ingredients)
+            </td>
+            <td>
+                <span>@Html.ActionLink("Edit", "Edit", new { id = recipe.RecipeId })</span>|
+                <span>@Html.ActionLink("Delete", "Delete", new { id = recipe.RecipeId })</span>|
+                <span>@Html.ActionLink("Details", "Details", new { id = recipe.RecipeId })</span>
+            </td>
+        </tr>
+    }
+  </tbody>
+</table>
+<p>@Html.ActionLink("Add new recipe", "Create")</p>
+<p>@Html.ActionLink("Back to main", "Index", "Home")</p>

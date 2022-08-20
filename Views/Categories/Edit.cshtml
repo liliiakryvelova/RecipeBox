@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@model RecipeBox.Models.Category
+
+<h2>Edit</h2>
+
+<h4>Edit this task: @Html.DisplayFor(model => model.CategoryName)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.CategoryId)
+
+    @Html.LabelFor(model => model.CategoryName)
+    @Html.EditorFor(model => model.CategoryName)
+
+    @Html.Label("Select recepy")
+    @Html.DropDownList("RecipeId")
+
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

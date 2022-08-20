@@ -6,7 +6,6 @@
 
 }
 
-
 li, a, button {
 	font-family: "Montserrat", sant-serif;
 	font-weight: 500;
@@ -27,10 +26,42 @@ header {
 .nav_links {
 	list-style: none;
 }
-div {
+.moderate{
+	top: 50px;
+	width: 320px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin: 10;
+	position: absolute;
+	text-align: initial;
+	align-items: center;
+}
+fieldset div{
+	text-align:right;
+}
+/* div{
+	text-align: center;
+} */
+ol li{
+	text-align:left;
+}
+p{
 	text-align: center;
 }
+table {
+  border-collapse: collapse;
+  width: 100%;
 
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+	width: 50px;;
+  border-bottom: 1px solid #DDD;
+}
+
+tr:hover {background-color: #D6EEEE;}
 h1 {
 	text-align: center;
 }
